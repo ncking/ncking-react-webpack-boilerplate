@@ -30,8 +30,6 @@ export const WEBPACK_ENV_VARS = []
 
 
 export const alias = {
-  "@components": './src/components',
-  "@pages": './src/pages',
-  "@config": './src/config',
-  "@lib": './src/lib'
+  "@components": resolve('./src/components'),
+  "@lib": resolve('./src/lib')
 }

@@ -47,7 +47,28 @@ export default [
     test: /\.(js|ts)x?$/,
     exclude: /(node_modules|\.webpack)/,
     use: {
-      loader: 'babel-loader'
+      loader: "swc-loader", // you would put 
+      options: {
+        // Enable source map
+       // sourceMap: true,
+       // sync: true,
+        jsc: {
+          parser: {
+            syntax: "typescript",
+            jsx: true,
+          },
+          transform: {
+            react: {
+              pragma: "React.createElement",
+              pragmaFrag: "React.Fragment",
+              throwIfNamespace: true,
+              development: __DEV__,
+              useBuiltins: false,
+              runtime: 'automatic'
+            },
+          },
+        },
+      },
     },
   },
   {
